@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import ErrorPage from "./pages/ErrorPage";  
-//import SignupPage from "./pages/SignupPage";
+import SignupPage from "./pages/SignupPage";
 //import LoginPage from "./pages/LoginPage";
 //import IsPrivate from "./components/IsPrivate";  
 //import IsAnon from "./components/IsAnon";
@@ -20,7 +20,7 @@ function App() {
         <Route path="*" element={ <ErrorPage /> } />
         {/*<Route exact path="/books" element={<BookListPage />} />*/}
 
-       {/* <Route path="/signup" element={ <IsAnon> <SignupPage /> </IsAnon>} /> */} 
+       <Route path="/signup" element={ <SignupPage /> } /> 
         {/* <Route path="/login" element={ <IsAnon> <LoginPage /> </IsAnon> } /> */} 
       </Routes>
       </Router> 
