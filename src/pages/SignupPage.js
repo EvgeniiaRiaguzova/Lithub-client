@@ -28,12 +28,12 @@ function SignupPage(props) {
   const handleSignupSubmit = (e) => {
     e.preventDefault();
     // Create an object representing the request body
-    const requestBody = { username, email, password, bio, profileImage, status, books };
+    const requestBody = {username, email, password, bio, profileImage, status, books };
  
     // Make an axios request to the API
     // If POST request is successful redirect to login page
     // If the request resolves with an error, set the error message in the state
-    axios.post(`${API_URL}/auth/signup`, requestBody)
+    axios.post(`${API_URL}/api/auth/signup`, requestBody)
       .then((response) => {
         navigate('/login');
       })
@@ -92,8 +92,8 @@ function SignupPage(props) {
 
          <label>Your status:</label>
          <select name="status" value={status} onChange={handleStatus}>
-         <option value="reader">Reader</option>
-         <option value="author">Author</option>
+         <option value="Reader">Reader</option>
+         <option value="Author">Author</option>
          </select>
          
         <button type="submit">Sign Up</button>
