@@ -28,8 +28,11 @@ function SignupPage(props) {
   const handleSignupSubmit = (e) => {
     e.preventDefault();
     // Create an object representing the request body
-    const requestBody = {username, email, password, bio, profileImage, status, books };
- 
+    if(profileImage === "" ){
+     setProfileImage("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png")
+    }
+    const requestBody = {username, email, password, bio, profileImage ,  status, books };
+ console.log(requestBody)
     // Make an axios request to the API
     // If POST request is successful redirect to login page
     // If the request resolves with an error, set the error message in the state
@@ -83,15 +86,16 @@ function SignupPage(props) {
           rows="3"
         />
          <label>Your profile image:</label>
-        <input 
+       <input 
           type="text" //type="file" ??
           name="profileImage"
           value={profileImage}
           onChange={handleProfileImage}
-        />
+        /> 
 
          <label>Your status:</label>
          <select name="status" value={status} onChange={handleStatus}>
+         <option value=" " ></option>
          <option value="Reader">Reader</option>
          <option value="Author">Author</option>
          </select>

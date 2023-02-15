@@ -27,7 +27,7 @@ function Navbar() {
         <>
           <NavLink to="/profilePage" className={({ isActive }) => isActive ? "selected" : ""}> My profile page </NavLink>        
           <button onClick={logOutUser}>Logout</button>
-          <span>{user && user.name}</span>
+          <span>{user && user.username}</span>
         </>
       )}
 
