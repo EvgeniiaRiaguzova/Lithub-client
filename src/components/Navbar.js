@@ -5,7 +5,7 @@ import { AuthContext } from "../context/auth.context";
 function Navbar() {
 // Subscribe to the AuthContext to gain access to
   // the values from AuthContext.Provider `value` prop
-  const { isLoggedIn, user } = useContext(AuthContext); 
+  const { isLoggedIn, user, logOutUser } = useContext(AuthContext); 
 
   //  The rendering logic to display different content 
   //  depending on the user being logged in or not
@@ -26,7 +26,8 @@ function Navbar() {
         {isLoggedIn && (
         <>
           <NavLink to="/profilePage" className={({ isActive }) => isActive ? "selected" : ""}> My profile page </NavLink>        
-          <button>Logout</button>
+          <button onClick={logOutUser}>Logout</button>
+          <span>{user && user.username}</span>
         </>
       )}
 
