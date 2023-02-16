@@ -9,7 +9,7 @@ function AuthProviderWrapper(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
-  //const navigate = useNavigate()
+  const navigate = useNavigate()
   const storeToken = (token) => { 
     localStorage.setItem('authToken', token );
   }
@@ -60,7 +60,7 @@ function AuthProviderWrapper(props) {
     removeToken();
     // and update the state variables    
     authenticateUser();
-    //navigate("/")
+    navigate("/")
   }  
   
   useEffect(() => {                                                  

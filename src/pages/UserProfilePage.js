@@ -18,14 +18,18 @@ function UserProfilePage(props) {
           .then(() => {
             // Once the delete request is resolved successfully
             // navigate back to the SignUpPage.
-            navigate("/signup");
+        
             logOutUser()
+              navigate("/signup");
           })
           .catch((err) => console.log(err));
       };  
 
   return (
-    <div className="UserProfilePage">
+<div>
+       {user && 
+        <div className="UserProfilePage">
+
       <h1>Welcome, {user.username}</h1> {/*is this right or I should do {authenticateUser.username} ?*/}
       <img className="UserProfileImg" alt="User profile image"
              src={user.profileImage}/>
@@ -49,6 +53,10 @@ function UserProfilePage(props) {
        
      
     </div>
+    }
+</div>
+ 
+    
   )
 }
  

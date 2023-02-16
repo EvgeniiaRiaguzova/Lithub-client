@@ -29,7 +29,7 @@ function LoginPage(props) {
         console.log('JWT token', response.data.authToken );
         storeToken(response.data.authToken); // Save the token in the localStorage.
         authenticateUser(); // Verify the token by sending a request to the server's JWT validation endpoint.
-        navigate('/');                                  
+        navigate('/profilePage');                                  
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;

@@ -14,7 +14,7 @@ import UserProfilePage from "./pages/UserProfilePage";
 function App() {
   return (
     <div className="App">
-    <Router> 
+    
       <Navbar />
 
       <Routes>      
@@ -29,7 +29,7 @@ function App() {
         {/* <Route path="/login" element={ <IsAnon> <LoginPage /> </IsAnon> } /> */} 
        
       </Routes>
-      </Router> 
+     
     </div>
   );
 }
