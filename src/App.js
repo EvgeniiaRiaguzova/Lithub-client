@@ -16,7 +16,6 @@ import Books from "./pages/Books";
 function App() {
   return (
     <div className="App">
-    
       <Navbar />
 
       <Routes>      
@@ -30,7 +29,6 @@ function App() {
        <Route path="/users/edit" element={ <EditUserPage /> } />
         {/* <Route path="/login" element={ <IsAnon> <LoginPage /> </IsAnon> } /> */}
       </Routes>
- 
     </div>
   );
 }
