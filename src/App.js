@@ -8,9 +8,10 @@ import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import EditUserPage from "./pages/EditUserPage";
 import UserProfilePage from "./pages/UserProfilePage";
-//import IsPrivate from "./components/IsPrivate";  
-//import IsAnon from "./components/IsAnon";
-//import BookListPage from "./pages/BookListPage";
+import IsPrivate from "./components/IsPrivate";  
+import IsAnon from "./components/IsAnon";
+import IsAuthor from "./components/IsAuthor";
+
 function App() {
   return (
     <div className="App">
@@ -20,13 +21,11 @@ function App() {
       <Routes>      
         <Route exact path="/" element={<HomePage />} />   
         <Route path="*" element={ <ErrorPage /> } />
-        {/*<Route exact path="/books" element={<BookListPage />} />*/}
-
-       <Route path="/signup" element={ <SignupPage /> } /> 
-       <Route path="/login" element={ <LoginPage /> } />
-       <Route path="/profilePage" element={ <UserProfilePage/> } />
-       <Route path="/users/edit" element={ <EditUserPage /> } />
-        {/* <Route path="/login" element={ <IsAnon> <LoginPage /> </IsAnon> } /> */} 
+       <Route path="/signup" element={<IsAnon>  <SignupPage /> </IsAnon> } /> 
+       <Route path="/login" element={ <IsAnon> <LoginPage /> </IsAnon> } />
+       <Route path="/profilePage" element={ <IsPrivate> <UserProfilePage/> </IsPrivate> } />
+       <Route path="/users/edit" element={ <IsPrivate> <EditUserPage /> </IsPrivate>} />
+      
        
       </Routes>
      
