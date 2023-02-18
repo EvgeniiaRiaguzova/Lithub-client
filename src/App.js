@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import ErrorPage from "./pages/ErrorPage";  
@@ -16,7 +16,7 @@ import Books from "./pages/Books";
 function App() {
   return (
     <div className="App">
-    <Router> 
+    
       <Navbar />
 
       <Routes>      
@@ -30,7 +30,7 @@ function App() {
        <Route path="/users/edit" element={ <EditUserPage /> } />
         {/* <Route path="/login" element={ <IsAnon> <LoginPage /> </IsAnon> } /> */}
       </Routes>
-      </Router> 
+ 
     </div>
   );
 }
