@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from '../context/auth.context';
 import { useContext } from "react";
-const API_URL = "http://localhost:5005";
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005"; 
 
 function EditUserPage() {
   const [username, setUsername] = useState("");
@@ -14,7 +14,7 @@ function EditUserPage() {
   const [status, setStatus] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
-  const { storeToken, user, setUser} = useContext(AuthContext);
+  const { user, setUser} = useContext(AuthContext);
   console.log("the authenticater" , user)
 
   const navigate = useNavigate();
@@ -38,6 +38,7 @@ function EditUserPage() {
         const errorDescription = error.response.data.message;
         setErrorMessage(errorDescription);
       })
+      //eslint-disable-next-line  
     }, [user._id]);
   
     const handleFormSubmit = (e) => {

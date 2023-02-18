@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
  
-const API_URL = "http://localhost:5005";
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
  
  
 function SignupPage(props) {
@@ -12,7 +12,7 @@ function SignupPage(props) {
   const [bio, setBio] = useState("");
   const [profileImage, setProfileImage] = useState("");
   const [status, setStatus] = useState("");
-  const [books, setBooks] = useState([{}]);
+  
   const [errorMessage, setErrorMessage] = useState(undefined);
  
   const navigate = useNavigate();
@@ -31,7 +31,7 @@ function SignupPage(props) {
     if(profileImage === "" ){
      setProfileImage("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png")
     }
-    const requestBody = {username, email, password, bio, profileImage ,  status, books };
+    const requestBody = {username, email, password, bio, profileImage ,  status };
  console.log(requestBody)
     // Make an axios request to the API
     // If POST request is successful redirect to login page
