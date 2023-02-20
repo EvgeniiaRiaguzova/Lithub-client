@@ -21,7 +21,7 @@ function EditBook(props) {
 
         uploadData.append("image", e.target.files[0]);
      
-        axios.post(`${API_URL}/api/upload`, uploadData)
+        axios.post(`${API_URL}/upload`, uploadData)
           .then(response => {
             setImage(response.data.image);
           })

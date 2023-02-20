@@ -22,6 +22,7 @@ const storedToken = localStorage.getItem('authToken')
 
 useEffect(() => {
     getBookList();
+    // eslint-disable-next-line
 }, [] );
 
 
@@ -34,7 +35,7 @@ return (
                     <div style={{maxWidth: '540px'}}>
                         <div>
                             <div>
-                            <img src={book.image} alt="book"   style={{ width: '200px', height: '200px'}}/>
+                            <img src={book.bookImage} alt="book"   style={{ width: '200px', height: '200px'}}/>
         
                             </div>
                             <div>
