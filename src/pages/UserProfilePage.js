@@ -1,5 +1,5 @@
 import React from "react";
-import { useContext} from "react";
+import { useContext, useState, useEffect} from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from '../context/auth.context';
@@ -23,7 +23,25 @@ function UserProfilePage(props) {
               navigate("/signup");
           })
           .catch((err) => console.log(err));
-      };  
+      }; 
+      
+      //desplay UserBookList
+
+        const [books, setBooks] = useState([]);
+        const getUserBookList = () => {
+        const storedToken = localStorage.getItem('authToken')
+        
+            axios
+            .get(`${API_URL}/api/books`, { headers: { Authorization: `Bearer ${storedToken}`}})
+            .then((response) => {response.data.map((book) => {
+              book.author === user.username && setBooks(response.data)})
+            })
+        }
+        
+        useEffect(() => {
+            getUserBookList();
+        }, [] );
+   
 
   return (
 <div>
@@ -37,20 +55,19 @@ function UserProfilePage(props) {
       <p>Status: {user.status}</p>
       <p>About you: {user.bio}</p>
       <br></br>
-      <Link to="/users/edit"> {/*not sure about endpoint*/}
+      <Link to="/users/edit"> 
              <button>Edit your profile</button></Link>
       
       <button onClick={deleteUser}>Delete your profile</button>
       
       <br></br>
       <h5>Your books:</h5>
+      <p>{user.books}</p>
       <br></br>
 
 
        <br></br>
-       <Link to="/addbooks"></Link>
-       <button>Add new book</button>
-
+       <Link to="/addbooks"><button>Add new book</button></Link>
 
        
      

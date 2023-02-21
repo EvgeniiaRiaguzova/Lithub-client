@@ -15,9 +15,6 @@ import AddBook from "./components/AddBook";
 import EditBook from "./pages/EditBook";
 import BookCard from "./components/BookCard";
 
-//import IsPrivate from "./components/IsPrivate";  
-//import IsAnon from "./components/IsAnon";
-//import BookListPage from "./pages/BookListPage";
 import IsPrivate from "./components/IsPrivate";  
 import IsAnon from "./components/IsAnon";
 import IsAuthor from "./components/IsAuthor";
