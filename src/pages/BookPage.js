@@ -49,7 +49,7 @@ return (
     <br/>
         <ul>
             <li>Description: {book.description}</li>
-            <li>Author: {book.author}</li>
+            <li>Author: {book.author.username}</li>
             <li>Gerne: {book.gerne}</li>
             <li>Contence: {book.contence}</li>
         </ul>                    
