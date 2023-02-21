@@ -45,6 +45,7 @@ function UserProfilePage(props) {
 
   return (
 <div>
+{console.log(user)}
        {user && 
         <div className="UserProfilePage">
 

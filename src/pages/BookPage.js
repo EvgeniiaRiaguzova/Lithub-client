@@ -35,6 +35,7 @@ const handleSubmit = (e) => {
 }
     useEffect(() => {
         getOneBook();
+      // eslint-disable-next-line  
     }, [] );
 
     if(isLoading){

@@ -10,27 +10,46 @@ function NewBook() {
   const { book, setUser, removeToken, storeToken } = useContext(AuthContext);
     const navigate = useNavigate();
     const [title, setTitle] = useState("");
-    const [image, setImage] = useState("");
+    const [bookImage, setBookImage] = useState("");
     const [description, setDescription] = useState("");
     const [author, setAuthor] = useState("");
     const [gerne, setGerne] = useState("");
+
+  /*
+with useState("") => you're telling that the value of "gerne" it's a empty string
+setGerne it's a function that you use to change the state of gerne
+
+
+
+  */
+
+
+    /*
+1º axios.post(`${API_URL}/api/upload` it's not created on the backend - inside of index route in server
+2º check on the Mongo Atlas if the Author is the ID of the user
+
+
+    */
     const handleFileUpload = (e) => {
     const uploadData = new FormData();
 
         uploadData.append("image", e.target.files[0]);
         axios.post(`${API_URL}/api/upload`, uploadData)
           .then(response => {
-            setImage(response.data.image);
+            setBookImage(response.data.image);
           })
           .catch(err => console.log("Error while uploading the file: ", err));
       };
     
     const handleSubmit =  (e) => {
         e.preventDefault();
+        console.log(
+          "test"
+        )
     
         const storedToken = localStorage.getItem('authToken');
         const addBook = {
-            title,  description, /*image, author,*/ gerne
+            title,  description,   gerne , bookImage
         }
 
         axios
@@ -38,12 +57,12 @@ function NewBook() {
         .then( async (response) => {
           const authToken = response.data.authToken;
           const updatedUser = response.data.updatedUser;
-          /*
-          await removeToken()
+          /*await removeToken()
           await storeToken(authToken)
           await setUser(updatedUser)
           */
-          setTitle(''); setImage(''); setDescription(''); setAuthor(''); setGerne(''); 
+          
+          setTitle(''); setBookImage(''); setDescription(''); setAuthor(''); setGerne(''); 
           navigate("/books");
         });
     };
@@ -66,12 +85,12 @@ function NewBook() {
                 
                 {/*{book && book.image && <img src={book.image} alt={"book_image"} style={{width: '300px', height: '300px'}} />}
                 <form onSubmit={handleSubmit}>
-                <input type="file" onChange={(e) => handleFileUpload(e)} name="image" placeholder='Image'/>
+                <input type="file" onChange={(e) => handleFileUpload(e)} name="bookImage" placeholder='Image'/>
                 </form>
                 <br/>
                 */}
           <div>
-             <button type="submit">Add New Book</button>
+           <button type="submit">Add New Book</button>
           </div>
             </form>
         </div>    
