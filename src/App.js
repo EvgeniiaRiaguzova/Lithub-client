@@ -1,3 +1,4 @@
+
 import React from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
@@ -14,9 +15,6 @@ import AddBook from "./components/AddBook";
 import EditBook from "./pages/EditBook";
 import BookCard from "./components/BookCard";
 
-//import IsPrivate from "./components/IsPrivate";  
-//import IsAnon from "./components/IsAnon";
-//import BookListPage from "./pages/BookListPage";
 import IsPrivate from "./components/IsPrivate";  
 import IsAnon from "./components/IsAnon";
 import IsAuthor from "./components/IsAuthor";
@@ -44,3 +42,4 @@ function App() {
 }
 
 export default App;
+

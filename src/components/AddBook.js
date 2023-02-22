@@ -7,7 +7,7 @@ const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
  
 function NewBook() {
-    const { book, setUser, removeToken, storeToken } = useContext(AuthContext);
+  const { book, setUser, removeToken, storeToken } = useContext(AuthContext);
     const navigate = useNavigate();
     const [title, setTitle] = useState("");
     const [bookImage, setBookImage] = useState("");
@@ -77,16 +77,18 @@ setGerne it's a function that you use to change the state of gerne
                 <br/>
                 <textarea type="text" value={description} onChange={(e)=> setDescription(e.target.value)} name="description" placeholder='Description'></textarea>
                 <br/>
+                {/*
                 <input type="text" value={author} onChange={(e) => setAuthor(e.target.value)} name="author" placeholder='Author'/>
-                <br/>
+                <br/> */}
                 <input type="text" value={gerne} onChange={(e) => setGerne(e.target.value)} name="gerne" placeholder='Gerne'/>
                 <br/>
                 
-                {book && book.image && <img src={book.image} alt={"book_image"} style={{width: '300px', height: '300px'}} />}
+                {/*{book && book.image && <img src={book.image} alt={"book_image"} style={{width: '300px', height: '300px'}} />}
                 <form onSubmit={handleSubmit}>
                 <input type="file" onChange={(e) => handleFileUpload(e)} name="bookImage" placeholder='Image'/>
                 </form>
                 <br/>
+                */}
           <div>
            <button type="submit">Add New Book</button>
           </div>
