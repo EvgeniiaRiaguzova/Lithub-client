@@ -45,7 +45,6 @@ function UserProfilePage(props) {
 
   return (
 <div>
-{console.log(user)}
        {user && 
         <div className="UserProfilePage">
 
@@ -62,7 +61,15 @@ function UserProfilePage(props) {
       
       <br></br>
       <h5>Your books:</h5>
-      <p>{user.books}</p>
+      {console.log(user)}
+      {user.books.map((book)=>{
+        return (
+          <div>
+          <h4>{book.title}</h4>
+          </div>
+        )
+      })}
+     
       <br></br>
 
 

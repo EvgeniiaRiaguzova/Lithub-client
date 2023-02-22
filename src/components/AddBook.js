@@ -55,15 +55,16 @@ setGerne it's a function that you use to change the state of gerne
         axios
         .post(`${API_URL}/api/books`, addBook, { headers: { Authorization: `Bearer ${storedToken}`}})
         .then( async (response) => {
-          const authToken = response.data.authToken;
-          const updatedUser = response.data.updatedUser;
-          /*await removeToken()
-          await storeToken(authToken)
+          const authToken = response.data/*.authToken;*/
+          const updatedUser = response.data.user
+          console.log("authToken", authToken)
+          console.log("updatedUser" , updatedUser)
+       
           await setUser(updatedUser)
-          */
+          
           
           setTitle(''); setBookImage(''); setDescription(''); setAuthor(''); setGerne(''); 
-          navigate("/books");
+          navigate("/profilePage");
         });
     };
 
