@@ -27,6 +27,7 @@ function UserProfilePage(props) {
 
   return (
 <div>
+{console.log(user)}
        {user && 
         <div className="UserProfilePage">
 
@@ -47,6 +48,7 @@ function UserProfilePage(props) {
 
 
        <br></br>
+       <Link to="/addbooks"></Link>
        <button>Add new book</button>
 
 
