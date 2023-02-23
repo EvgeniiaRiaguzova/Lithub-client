@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import service from "../api/service";
+import { FileUpload } from "../components/FileUpload";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from '../context/auth.context';
 import { useContext } from "react";
@@ -12,11 +14,22 @@ function EditUserPage() {
   const [bio, setBio] = useState("");
   const [profileImage, setProfileImage] = useState("");
   const [status, setStatus] = useState("");
+  const [books, setBooks] = useState([]);
   const [errorMessage, setErrorMessage] = useState(undefined);
-
   const { user, setUser} = useContext(AuthContext);
   console.log("the authenticater" , user)
+{/********* this method handles the file upload ********
+const handleFileUpload = (e) => {
+  const uploadData = new FormData();
+  uploadData.append("ProfileImage", e.target.files[0]);
 
+  service
+    .uploadImage(uploadData)
+    .then(response => {
+      setProfileImage(response.fileUrl);
+    })
+    .catch(err => console.log("Error while uploading the file: ", err));
+};*/} 
   const navigate = useNavigate();
 
    useEffect(() => {  
@@ -31,14 +44,13 @@ function EditUserPage() {
         setPassword(foundUser.password);
         setProfileImage(foundUser.profileImage);
         setStatus(foundUser.status);
-
+        setBooks(foundUser.books);
         navigate('/profilePage');
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
         setErrorMessage(errorDescription);
-      })
-      //eslint-disable-next-line  
+      })  
     }, [user._id]);
   
     const handleFormSubmit = (e) => {
@@ -58,6 +70,7 @@ function EditUserPage() {
       // is updated we navigate back to the UserProfilePage
       console.log(' put response data', response.data)
       setUser(response.data)
+      setBooks(books)
       navigate(`/profilePage`) 
     }
     );
@@ -101,12 +114,7 @@ function EditUserPage() {
           rows="3"
         />
          <label>Your profile image:</label>
-       <input 
-          type="text" //type="file" ??
-          name="profileImage"
-          value={profileImage}
-          onChange={(e) => setProfileImage(e.target.value)}
-        /> 
+         <FileUpload setProfileImage={setProfileImage} />
 
          <label>Your status:</label>
          <select name="status" value={status} onChange={(e) => setStatus(e.target.value)}>

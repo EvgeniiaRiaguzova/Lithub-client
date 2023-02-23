@@ -3,7 +3,7 @@ import { useContext, useState, useEffect} from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from '../context/auth.context';
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
+const API_URL = /*process.env.REACT_APP_API_URL || */ "http://localhost:5005";
 
 
 function UserProfilePage(props) {
@@ -34,13 +34,14 @@ function UserProfilePage(props) {
             axios
             .get(`${API_URL}/api/books`, { headers: { Authorization: `Bearer ${storedToken}`}})
             .then((response) => {response.data.map((book) => {
-              book.author === user.username && setBooks(response.data)})
+              return (
+              book.author === user.username && setBooks(response.data))})
             })
         }
         
         useEffect(() => {
-            getUserBookList();
-        }, [] );
+            getUserBookList()
+        }, [books] );
    
 
   return (
@@ -48,7 +49,7 @@ function UserProfilePage(props) {
        {user && 
         <div className="UserProfilePage">
 
-      <h1>Welcome, {user.username}</h1> {/*is this right or I should do {authenticateUser.username} ?*/}
+      <h1>Welcome, {user.username}</h1> 
       <img className="UserProfileImg" alt="User profile"
              src={user.profileImage}/>
       <p>Status: {user.status}</p>
@@ -62,7 +63,7 @@ function UserProfilePage(props) {
       <br></br>
       <h5>Your books:</h5>
       {console.log(user)}
-      {user.books.map((book)=>{
+      {user.books?.map((book)=>{
         return (
           <div>
           <h4>{book.title}</h4>

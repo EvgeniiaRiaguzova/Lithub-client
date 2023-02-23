@@ -23,11 +23,10 @@ function SignupPage(props) {
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
   const handleBio = (e) => setBio(e.target.value);
-  //const handleProfileImage = (e) => setProfileImage(e.target.value);
   const handleStatus = (e) => setStatus(e.target.value);
-  //const handleBooks = (e) => setBooks(e.target.value);
   
-// ******** this method handles the file upload ********
+  
+{/********* this method handles the file upload ********
 const handleFileUpload = (e) => {
   const uploadData = new FormData();
   uploadData.append("ProfileImage", e.target.files[0]);
@@ -39,7 +38,7 @@ const handleFileUpload = (e) => {
     })
     .catch(err => console.log("Error while uploading the file: ", err));
 };
-
+*/} 
 
   const handleSignupSubmit = (e) => {
     e.preventDefault();
@@ -47,7 +46,7 @@ const handleFileUpload = (e) => {
     if(profileImage === "" ){
      setProfileImage("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png")
     }
-    const requestBody = {username, email, password, bio, profileImage ,  status };
+    const requestBody = {username, email, password, bio, profileImage, status };
  console.log(requestBody)
     // Make an axios request to the API
     // If POST request is successful redirect to login page
