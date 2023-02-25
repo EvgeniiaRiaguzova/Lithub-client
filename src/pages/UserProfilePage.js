@@ -93,7 +93,8 @@ function UserProfilePage(props) {
 
 
        <br></br>
-       <Link to="/addbooks"><button>Add new book</button></Link>
+       <button>Add new book</button>
+
 
        
      
