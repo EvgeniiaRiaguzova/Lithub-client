@@ -9,8 +9,25 @@ const API_URL = /*process.env.REACT_APP_API_URL || */ "http://localhost:5005";
 function UserProfilePage(props) {
     const navigate = useNavigate()
     const storedToken = localStorage.getItem('authToken');
+    const [theUserProfile , setTheUserProfile] = useState("")
     const {user, logOutUser} = useContext(AuthContext);
-    console.log("the authenticater" , user)
+  
+
+   {/*  const theUser = async () => {
+      try {
+        const response = await axios.get(`${API_URL}/api/users/profile`, { headers: { Authorization: `Bearer ${storedToken}`}})
+       // console.log("the response.data from", response.data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    useEffect(() => {
+      theUser()
+    }, [])
+*/}
+    console.log("the user profile", theUserProfile)
+   
     const deleteUser = () => {                    
         // Make a DELETE request to delete user
         axios
@@ -28,6 +45,7 @@ function UserProfilePage(props) {
       //desplay UserBookList
 
         const [books, setBooks] = useState([]);
+
         const getUserBookList = () => {
         const storedToken = localStorage.getItem('authToken')
         
@@ -62,15 +80,15 @@ function UserProfilePage(props) {
       
       <br></br>
       <h5>Your books:</h5>
-      {console.log(user)}
-      {user.books?.map((book)=>{
+    
+      
+     {user.books?.map((book)=>{
         return (
           <div>
-          <h4>{book.title}</h4>
+          <h4 key={book._id}>{book.title}</h4>
           </div>
         )
       })}
-     
       <br></br>
 
 

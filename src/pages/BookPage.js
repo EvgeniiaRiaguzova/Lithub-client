@@ -51,8 +51,18 @@ return (
         <ul>
             <li>Description: {book.description}</li>
             <li>Author: {book.author.username}</li>
-            <li>Gerne: {book.gerne}</li>
-            <li>Contence: {book.contence}</li>
+        
+         
+{/*<li>Author: {book.author? ((author)=>{
+        return (
+          <div>
+          <h4 key={user._id}>{user.username}</h4>
+          </div>
+        )
+      })} </li>
+        */}
+            <li>Genre: {book.genre}</li>
+            <li>content: {book.content}</li>
         </ul>                    
         <div>
         <div>        
@@ -67,12 +77,12 @@ return (
         </form>
         <div>
         <div>
-        {book.comments && book.comments.map(comment => {
+       {/* {book.comments && book.comments.map(comment => {
             return (
                 <div>{comment.user.username} - {comment.comment}</div>
         )
     })
-    }   
+    }   */}
         </div>
         </div>                     
     </div>
