@@ -13,8 +13,8 @@ function NewBook() {
     const [bookImage, setBookImage] = useState("");
     const [description, setDescription] = useState("");
     const [author, setAuthor] = useState("");
-    const [gerne, setGerne] = useState("");
-
+    const [genre, setGenre] = useState("");
+    const [content, setContent] = useState("");
   /*
 with useState("") => you're telling that the value of "gerne" it's a empty string
 setGerne it's a function that you use to change the state of gerne
@@ -43,13 +43,11 @@ setGerne it's a function that you use to change the state of gerne
     
     const handleSubmit =  (e) => {
         e.preventDefault();
-        console.log(
-          "test"
-        )
+    
     
         const storedToken = localStorage.getItem('authToken');
         const addBook = {
-            title,  description,   gerne , bookImage
+            title, description, genre, bookImage, content
         }
 
         axios
@@ -57,13 +55,17 @@ setGerne it's a function that you use to change the state of gerne
         .then( async (response) => {
           const authToken = response.data/*.authToken;*/
           const updatedUser = response.data.user
-          console.log("authToken", authToken)
-          console.log("updatedUser" , updatedUser)
+          
        
           await setUser(updatedUser)
           
-          
-          setTitle(''); setBookImage(''); setDescription(''); setAuthor(''); setGerne(''); 
+          setTitle(''); 
+          setBookImage(''); 
+          setDescription(''); 
+          setAuthor(''); 
+          setGenre(''); 
+          setDescription('');
+          setContent('');
           navigate("/profilePage");
         });
     };
@@ -78,10 +80,7 @@ setGerne it's a function that you use to change the state of gerne
                 <br/>
                 <textarea type="text" value={description} onChange={(e)=> setDescription(e.target.value)} name="description" placeholder='Description'></textarea>
                 <br/>
-                {/*
-                <input type="text" value={author} onChange={(e) => setAuthor(e.target.value)} name="author" placeholder='Author'/>
-                <br/> */}
-                <input type="text" value={gerne} onChange={(e) => setGerne(e.target.value)} name="gerne" placeholder='Gerne'/>
+                <input type="text" value={genre} onChange={(e) => setGenre(e.target.value)} name="genre" placeholder='Genre'/>
                 <br/>
                 
                 {/*{book && book.image && <img src={book.image} alt={"book_image"} style={{width: '300px', height: '300px'}} />}
@@ -90,6 +89,8 @@ setGerne it's a function that you use to change the state of gerne
                 </form>
                 <br/>
                 */}
+                <input type="textarea" value={content} onChange={(e)=> setContent(e.target.value)} name="titlecontent" placeholder='Content'/>
+                <br/>
           <div>
            <button type="submit">Add New Book</button>
           </div>

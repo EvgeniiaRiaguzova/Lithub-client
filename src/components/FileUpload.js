@@ -9,7 +9,7 @@ export function FileUpload ({setProfileImage}){
         const storedToken = localStorage.getItem('authToken');
         console.log("tes")
         return await axios.post(`${API_URL}/upload`, image ,/*{ headers: { Authorization: `Bearer ${storedToken}`}}*/ )
-        .then((res)=> setProfileImage(res.data.fileUrl))
+        .then((res)=> /*setProfileImage*/(res.data/*.fileUrl*/))
         .catch(err => console.log(err))
     }
 
@@ -19,8 +19,8 @@ export function FileUpload ({setProfileImage}){
         console.log(e.target.files[0])
         uploadImage(file)
         .then((response) => {
-            console.log(response)
-            setProfileImage(response.path)
+            console.log("the response",response)
+            setProfileImage(response.fileUrl)
         })
         .catch(err => console.log(err)) 
     }

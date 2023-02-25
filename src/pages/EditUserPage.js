@@ -7,6 +7,8 @@ import { AuthContext } from '../context/auth.context';
 import { useContext } from "react";
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005"; 
 
+const storedToken = localStorage.getItem('authToken');
+
 function EditUserPage() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -17,25 +19,13 @@ function EditUserPage() {
   const [books, setBooks] = useState([]);
   const [errorMessage, setErrorMessage] = useState(undefined);
   const { user, setUser} = useContext(AuthContext);
-  console.log("the authenticater" , user)
-{/********* this method handles the file upload ********
-const handleFileUpload = (e) => {
-  const uploadData = new FormData();
-  uploadData.append("ProfileImage", e.target.files[0]);
 
-  service
-    .uploadImage(uploadData)
-    .then(response => {
-      setProfileImage(response.fileUrl);
-    })
-    .catch(err => console.log("Error while uploading the file: ", err));
-};*/} 
   const navigate = useNavigate();
 
    useEffect(() => {  
-    axios.get(`${API_URL}/api/users/edit`)
+    axios.get(`${API_URL}/api/users/profile`, { headers: { Authorization: `Bearer ${storedToken}`}})
       .then((response) => {
-        
+        console.log(response)
         const foundUser = response.data;
         setUsername(foundUser.username);
         setEmail(foundUser.email);
@@ -45,13 +35,14 @@ const handleFileUpload = (e) => {
         setProfileImage(foundUser.profileImage);
         setStatus(foundUser.status);
         setBooks(foundUser.books);
-        navigate('/profilePage');
+      
+        
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
         setErrorMessage(errorDescription);
       })  
-    }, [user._id]);
+    }, [user]);
   
     const handleFormSubmit = (e) => {
       e.preventDefault();
@@ -61,19 +52,30 @@ const handleFileUpload = (e) => {
       }
       const requestBody = {username, email, password, bio, 
                            profileImage , status};
-            console.log(requestBody)
+         
              // Make a PUT request to update the user
     axios
-    .put(`${API_URL}/api/users/edit`, requestBody, { headers: { Authorization: `Bearer ${storedToken}`} })
+    .put(`${API_URL}/api/users/edit`, requestBody, 
+    { headers: { Authorization: `Bearer ${storedToken}`} })
     .then((response) => { 
       // Once the request is resolved successfully and the user
       // is updated we navigate back to the UserProfilePage
-      console.log(' put response data', response.data)
-      setUser(response.data)
-      setBooks(books)
-      navigate(`/profilePage`) 
+      setUser(response.data);
+      navigate(`/profilePage`)  
+   
     }
-    );
+    )
+   {/*.then(()=> {
+      axios.get(`${API_URL}/api/users/profile`, 
+      { headers: { Authorization: `Bearer ${storedToken}`}})
+      .then((response) => 
+      {
+        console.log("the good response",response.data)
+        
+    });
+    }) */} 
+    
+   
       }
   return (
 <div className="EditUserPage">

@@ -47,7 +47,7 @@ const handleFileUpload = (e) => {
      setProfileImage("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png")
     }
     const requestBody = {username, email, password, bio, profileImage, status };
- console.log(requestBody)
+ 
     // Make an axios request to the API
     // If POST request is successful redirect to login page
     // If the request resolves with an error, set the error message in the state
