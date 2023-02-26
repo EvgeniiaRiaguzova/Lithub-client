@@ -1,4 +1,5 @@
 
+
 import React from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
@@ -14,15 +15,14 @@ import BookPage from "./pages/BookPage";
 import AddBook from "./components/AddBook";
 import EditBook from "./pages/EditBook";
 import BookCard from "./components/BookCard";
+import { useState } from "react";
 
-//import IsPrivate from "./components/IsPrivate";  
-//import IsAnon from "./components/IsAnon";
-//import BookListPage from "./pages/BookListPage";
 import IsPrivate from "./components/IsPrivate";  
 import IsAnon from "./components/IsAnon";
 import IsAuthor from "./components/IsAuthor";
 
 function App() {
+  
   return (
     <div className="App">
       <Navbar />
@@ -45,4 +45,5 @@ function App() {
 }
 
 export default App;
+
 

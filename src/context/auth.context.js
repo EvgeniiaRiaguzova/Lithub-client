@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
+const API_URL =/*process.env.REACT_APP_API_URL || */ "http://localhost:5005";
  
 const AuthContext = React.createContext();
  
@@ -63,13 +63,15 @@ function AuthProviderWrapper(props) {
     navigate("/")
   }  
   
+const value ={ isLoggedIn, isLoading, user,
+  storeToken, authenticateUser, logOutUser, setUser ,removeToken }
+  
   useEffect(() => {                                                  
     authenticateUser();
   }, []);
-
+console.log(user)
   return (
-    <AuthContext.Provider value={{ isLoggedIn, isLoading, user,
-     storeToken, authenticateUser, logOutUser, setUser }}>
+    <AuthContext.Provider value={value}>
       {props.children}
     </AuthContext.Provider>
   )

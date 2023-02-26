@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import service from "../api/service";
+import { FileUpload } from "../components/FileUpload";
  
-const API_URL = /*} process.env.REACT_APP_API_URL || */ "http://localhost:5005";
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
  
  
 function SignupPage(props) {
@@ -21,18 +23,31 @@ function SignupPage(props) {
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
   const handleBio = (e) => setBio(e.target.value);
-  const handleProfileImage = (e) => setProfileImage(e.target.value);
   const handleStatus = (e) => setStatus(e.target.value);
-  //const handleBooks = (e) => setBooks(e.target.value);
   
+  
+{/********* this method handles the file upload ********
+const handleFileUpload = (e) => {
+  const uploadData = new FormData();
+  uploadData.append("ProfileImage", e.target.files[0]);
+
+  service
+    .uploadImage(uploadData)
+    .then(response => {
+      setProfileImage(response.fileUrl);
+    })
+    .catch(err => console.log("Error while uploading the file: ", err));
+};
+*/} 
+
   const handleSignupSubmit = (e) => {
     e.preventDefault();
     // Create an object representing the request body
     if(profileImage === "" ){
      setProfileImage("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png")
     }
-    const requestBody = {username, email, password, bio, profileImage ,  status };
- console.log(requestBody)
+    const requestBody = {username, email, password, bio, profileImage, status };
+ 
     // Make an axios request to the API
     // If POST request is successful redirect to login page
     // If the request resolves with an error, set the error message in the state
@@ -86,12 +101,7 @@ function SignupPage(props) {
           rows="3"
         />
          <label>Your profile image:</label>
-       <input 
-          type="text" //type="file" ??
-          name="profileImage"
-          value={profileImage}
-          onChange={handleProfileImage}
-        /> 
+   <FileUpload setProfileImage={setProfileImage} />
 
          <label>Your status:</label>
          <select name="status" value={status} onChange={handleStatus}>

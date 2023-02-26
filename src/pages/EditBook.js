@@ -14,8 +14,8 @@ function EditBook(props) {
     const [image, setImage] = useState("");
     const [description, setDescription] = useState("");
     const [author, setAuthor] = useState("");
-    const [gerne, setGerne] = useState("");
-    const [contense, setContense] = useState("");
+    const [genre, setGenre] = useState("");
+    const [content, setContent] = useState("");
     const handleFileUpload = (e) => {
     const uploadData = new FormData();
 
@@ -36,7 +36,7 @@ function EditBook(props) {
     e.preventDefault();
 
     const storedToken = localStorage.getItem('authToken');
-    const updatedBook = {title, image, description, gerne, author, contense}
+    const updatedBook = {title, image, description, genre, author, content}
 
     axios.put(`${API_URL}/api/books/${bookId}`, updatedBook,{ headers: { Authorization: `Bearer ${storedToken}`}} )
         .then(async (response) => {
@@ -77,8 +77,8 @@ function EditBook(props) {
          setImage(oneBook.image);
          setDescription(oneBook.description);
          setAuthor(oneBook.author);
-         setGerne(oneBook.gerne);
-         setContense(oneBook.contense);
+         setGenre(oneBook.genre);
+         setContent(oneBook.content);
        })
        .catch((error) => console.log(error));
      
@@ -95,9 +95,9 @@ function EditBook(props) {
                 <br/>
                 <input type="text" value={author} onChange={(e) => setAuthor(e.target.value)} name="author" placeholder='Author'/>
                 <br/>
-                <input type="text" value={gerne} onChange={(e) => setGerne(e.target.value)} name="gerne" placeholder='Gerne'/>
+                <input type="text" value={genre} onChange={(e) => setGenre(e.target.value)} name="genre" placeholder='Genre'/>
                 <br/>
-                <input type="text" value={contense} onChange={(e) => setContense(e.target.value)} name="contense" placeholder='Contense'/>
+                <input type="text" value={content} onChange={(e) => setContent(e.target.value)} name="content" placeholder='Content'/>
                 <br/>
                 
                
