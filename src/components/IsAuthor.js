@@ -12,11 +12,12 @@ function IsAuthor ({ children } ) {
   if (!isLoggedIn) {
   // If the user is not logged in 
     return <Navigate to="/login" />;
-  } else {
+  } else if (user.status === "Author") {
     // If the user is author, allow to see the page 
   
-     return user.status === "Author" && children
+     return children
   }
+  else {return <Navigate to="/" />;}
 }
  
 export default IsAuthor;

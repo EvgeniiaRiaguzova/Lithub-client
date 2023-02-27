@@ -3,7 +3,7 @@ import React from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import HomePage from "./pages/HomePage";
+import HomePage from "./pages/HomePage/HomePage";
 import ErrorPage from "./pages/ErrorPage";  
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
@@ -34,9 +34,9 @@ function App() {
        <Route path="/profilePage" element={ <IsPrivate> <UserProfilePage/> </IsPrivate> } />
        <Route path="/users/edit" element={ <IsPrivate> <EditUserPage /> </IsPrivate>} />
        <Route path="/books" element={ <Books /> } /> 
-       <Route path="/addbooks" element={<AddBook/>} />
+       <Route path="/addbooks" element={<IsAuthor><AddBook/></IsAuthor>} />
        <Route path='/BookPage/:bookId' element={<BookPage/>} />
-        <Route path='/books/edit/:bookId' element={<EditBook/>} />
+        <Route path='/books/edit/:bookId' element={<IsAuthor><EditBook/></IsAuthor>} />
         <Route path='/cardbooks' element={<BookCard/>} />
       </Routes>
     </div>
