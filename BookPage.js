@@ -3,13 +3,16 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
+
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005"; 
  
 
 
 function BookPage() {
 const [book, setBook] = useState({});
+
 const {bookId}=useParams()
+
 const [comment, setComment] = useState('')
 const [isLoading , setIsLoading] = useState(true)
 
@@ -25,7 +28,8 @@ const getOneBook = () => {
 }
 const handleSubmit = (e) => {
     e.preventDefault()
-    const storedToken = localStorage.getItem('authToken')
+    const storedToken = localStorage.getItem('authToken');
+    
     axios
     .post(`${API_URL}/api/comments/comments/${bookId}`, {comment}, { headers: { Authorization: `Bearer ${storedToken}`}})
     .then(() => {
@@ -50,9 +54,9 @@ return (
     <br/>
         <ul>
             <li>Description: {book.description}</li>
-            <li>Author: {book.author}</li>
+            <li>Author: {book.author.username}</li>
             <li>Gerne: {book.gerne}</li>
-            <li>Contence: {book.contence}</li>
+            <li>Content: {book.content}</li>
         </ul>                    
         <div>
         <div>        
@@ -63,19 +67,24 @@ return (
         </div>
         <form onSubmit={handleSubmit}>
         <textarea type="text" value={comment} onChange={(e) => setComment(e.target.value)} name="comment" placeholder='Comment'></textarea>
+        <span className="name">{book.name}</span>
         <button type="submit">Create comment</button>
         </form>
         <div>
+        
+
         <div>
-        {console.log(book.comments)}
+        
+        
         {book.comments && book.comments.map(comment => {
             return (
-                <div> {/* {comment.author.username} */}  - {comment.comment}</div>
+            <div key ={comment._id} > {comment.author.username}  : {comment.comment}</div>
+            
         )
     })
     }   
         </div>
-        </div>                     
+        </div>                    
     </div>
     </div>          
 )
