@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import { useContext } from "react";                    
 import { AuthContext } from "../context/auth.context";
 
+import Logo from '../assets/Lithub-logo-new.png' 
 function Navbar() {
 // Subscribe to the AuthContext to gain access to
   // the values from AuthContext.Provider `value` prop
@@ -11,12 +12,12 @@ function Navbar() {
   //  depending on the user being logged in or not
     return (
       <nav className="Navbar">
-        <ul>
+        <div>
         <NavLink to="/" 
-        className={({ isActive }) => isActive ? "selected" : ""}>
-          Home
+        >
+          <img src={Logo} width="230px" height="120px" alt={'logo'}/>
         </NavLink>
-        
+        <div className="navButtons">
         <NavLink to="/books" 
         className={({ isActive }) => isActive ? "selected" : ""}> 
           Books
@@ -26,7 +27,7 @@ function Navbar() {
         {isLoggedIn && (
         <>
           <NavLink to="/profilePage" className={({ isActive }) => isActive ? "selected" : ""}> My profile page </NavLink>        
-          <button onClick={logOutUser}>Logout</button>
+          <button onClick={logOutUser} id="LogoutButton" >Logout</button>
           <span>{user && user.username}</span>
         </>
       )}
@@ -37,7 +38,8 @@ function Navbar() {
           <NavLink to="/login" className={({ isActive }) => isActive ? "selected" : ""}> Log in </NavLink>
         </>
       )}
-        </ul>
+      </div>
+        </div>
       </nav>
     );
   }

@@ -4,7 +4,7 @@ import axios from "axios";
 import service from "../api/service";
 import { FileUpload } from "../components/FileUpload";
  
-const API_URL = /*process.env.REACT_APP_API_URL || */"http://localhost:5005";
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
  
  
 function SignupPage(props) {

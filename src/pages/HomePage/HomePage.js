@@ -1,10 +1,14 @@
-//const imgURL = "https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/m3/react-routing/home.gif";
- 
+import "./HomePage.css";
+import Footer from "../../components/Footer/Footer";
 function HomePage() {
   return (
     <div>
-      <h1>Home</h1>
-      {/*<img src={imgURL} alt="home gif" className="page-img" /> */}
+    <section>
+      <h2>“Read, read, read. Read everything — trash, classics, good and bad, and see how they do it. Just like a carpenter who works as an apprentice and studies the master. Read! You’ll absorb it. Then write. If it’s good, you’ll find out. If it’s not, throw it out of the window.”
+― William Faulkner (about)</h2>
+      </section> 
+      
+     
     </div>
   );
 }
