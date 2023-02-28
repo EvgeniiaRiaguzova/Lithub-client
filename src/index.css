@@ -22,9 +22,9 @@ code {
  
 .Navbar {
   display: flex;
-  justify-content: space-between;
-  background: #352275;
-  padding: 5px 20px;
+  flex-direction: column;
+  background: #87829c;
+  padding: 15px 20px;
 }
  
 .Navbar li,
@@ -36,10 +36,74 @@ code {
   font-size: 1.2rem;
   color: white;
 }
+#LogoutButton {
+  border: none;
+  background-color:  #87829c;
+  color: #fff;
+  font-size: 1.2rem;
+}
+#LogoutButton:hover {
+  color: rgb(16, 97, 168)
+}
 
 .selected {
   text-shadow: 1px 0px 3px white;
   color: #fff;
   border-bottom: rgba(255, 255, 255, 0.639) solid 2px;
   padding-bottom: 5px;
+}
+.navButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 15px;
+  font-family: Goudy Old Style;
+}
+.UserProfilePage h1{
+  font-family: Gabriola
+}
+.UserProfilePage img {
+  width: 200px;
+  height: 300px;
+  padding: 15px;
+}
+.UserProfilePage {
+  display: flex;
+  flex-direction: row;
+  justify-content:flex-start;
+  height: 400px;
+}
+.UserInfo{
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  font-family: Goudy Old Style;
+  padding: 25px;
+}
+.PageButton {
+  border-radius: 10px;
+  border:#87829c solid 1px;
+  padding: 5px;
+  margin: 5px;
+
+
+}
+.PageButton:hover{
+  color:#87829c;
+}
+.UserButtons{
+  display: flex;
+  flex-direction: row;
+}
+#urBooks {
+  text-decoration-line:underline;
+  padding-top: 5px;
+}
+
+.BookLink{
+  text-decoration: none;
+  color: black;
+}
+.BookLink:hover{
+  color:#87829c;
 }

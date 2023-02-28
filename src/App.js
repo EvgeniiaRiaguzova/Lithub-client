@@ -4,7 +4,7 @@ import React from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import HomePage from "./pages/HomePage";
+import HomePage from "./pages/HomePage/HomePage";
 import ErrorPage from "./pages/ErrorPage";  
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
@@ -15,6 +15,7 @@ import BookPage from "./pages/BookPage";
 import AddBook from "./components/AddBook";
 import EditBook from "./pages/EditBook";
 import BookCard from "./components/BookCard";
+import Footer from "./components/Footer/Footer";
 import { useState } from "react";
 
 import IsPrivate from "./components/IsPrivate";  
@@ -40,6 +41,7 @@ function App() {
         <Route path='/books/edit/:bookId' element={<EditBook/>} />
         <Route path='/cardbooks' element={<BookCard/>} />
       </Routes>
+      <Footer/>
     </div>
   );
 }
