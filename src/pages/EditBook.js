@@ -85,9 +85,9 @@ function EditBook(props) {
    }, [bookId]);
   
   return (
-    <div>
+    <div className="EditDiv">
       <h3>Edit the Book</h3>
-      <form onSubmit={handleSubmit}>
+      <form className="EditBox" onSubmit={handleSubmit}>
 
                 <input type="text" value={title} onChange={(e)=> setTitle(e.target.value)} name="title" placeholder='Title'/>
                 <br/>
@@ -106,14 +106,14 @@ function EditBook(props) {
                 <input type="file" onChange={(e) => handleFileUpload(e)} name="image" placeholder='Image'/>
                 <br/>
               <div>
-                { image !== "" && <input type="submit" value="Submit" />}
+                { image !== "" && <input className="EditBtn" type="submit" value="Submit" />}
               </div>
               <br/>
-              <Link to="/books"><button >Back to books</button></Link>
+              <Link to="/books"><button  className="EditBtn">Back to books</button></Link>
               </form>
               <br/>
               <p>Or</p>
-              <button onClick={deleteBook}>Delete Book</button>
+              <button className="EditBtn" onClick={deleteBook}>Delete Book</button>
         </div>
   );
 }

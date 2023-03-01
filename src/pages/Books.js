@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import AddBook from "../components/AddBook";
+
 
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
@@ -27,8 +27,8 @@ useEffect(() => {
 
 
 return (
-    <div>  
-        <div> <AddBook />
+    <div className='books-filter-container'>  
+        <div className='books-list'> 
         {books.map((book) => {
             return(
                     <div key={book._id}>
