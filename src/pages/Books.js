@@ -6,7 +6,7 @@ import AddBook from "../components/AddBook";
 
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
- 
+const imgURL = "https://cdn.vectorstock.com/i/preview-1x/59/63/realistic-open-book-literary-work-vector-21925963.jpg";
 
 function Books() {
 const [books, setBooks] = useState([]);
@@ -35,7 +35,7 @@ return (
                     <div style={{maxWidth: '540px'}}>
                         <div>
                             <div>
-                            <img src={book.bookImage} alt="book"   style={{ width: '200px', height: '200px'}}/>
+                            <img src={imgURL} alt="book"   style={{ width: '200px', height: '200px'}}/>
         
                             </div>
                             <div>
