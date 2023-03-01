@@ -41,7 +41,7 @@ return (
                             <div>
                             <div>
                                 <h5>
-                                <Link to={`/bookpage/${book._id}`}>Go to read the book<br/>{book.title}</Link></h5>
+                                <Link to={`/bookpage/${book._id}`}>{book.title}</Link></h5>
                             </div>
                             </div>
                         </div>
