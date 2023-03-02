@@ -121,11 +121,11 @@ code {
   font-weight:bolder;
   font-size: 1.1em;
   text-shadow: 6px 6px 8px rgb(212, 174, 226);
-  background-image: url(https://cdn.pixabay.com/photo/2015/11/19/21/10/glasses-1052010_1280.jpg);
+  background-image: url("https://cdn.pixabay.com/photo/2015/11/19/21/10/glasses-1052010_1280.jpg");
 }
 
 .SignupPage::before {    
-  background-image: url(https://cdn.pixabay.com/photo/2015/11/19/21/10/glasses-1052010_1280.jpg)  ;
+  background-image: url("https://cdn.pixabay.com/photo/2015/11/19/21/10/glasses-1052010_1280.jpg")  ;
   background-size:cover; 
   opacity: 0.3;}
 
