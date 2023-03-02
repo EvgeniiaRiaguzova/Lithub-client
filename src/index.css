@@ -137,6 +137,9 @@ code {
   padding-top: 15px;
   font-family: Goudy Old Style;
 }
+
+/*UserProfilePage*/
+
 .UserProfilePage h1{
   font-family: Gabriola
 }
@@ -184,4 +187,107 @@ code {
 }
 .BookLink:hover{
   color:#87829c;
+}
+
+/*SignUpPage*/
+
+.SignupPage {
+  display: flex;
+  flex-direction: column;
+ align-items: center;
+  font-family: Goudy Old Style;
+  font-weight:bolder;
+  font-size: 1.1em;
+  text-shadow: 6px 6px 8px rgb(212, 174, 226);
+  background-image: url(https://cdn.pixabay.com/photo/2015/11/19/21/10/glasses-1052010_1280.jpg);
+}
+
+.SignupPage::before {    
+  background-image: url(https://cdn.pixabay.com/photo/2015/11/19/21/10/glasses-1052010_1280.jpg)  ;
+  background-size:cover; 
+  opacity: 0.3;}
+
+.FormBlock{
+  margin: 10px auto;
+  
+}
+.FormBlock label{
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.FormBlock select{
+  border: solid #87829c 1px;
+}
+
+#HaveAccount{
+  display: flex;
+  flex-direction: row;
+}
+#HaveAccount p{
+  margin-right: 7px;
+}
+
+/*LoginPage*/
+.LoginPage{
+  display: flex;
+  flex-direction: column;
+ align-items: center;
+  font-family: Goudy Old Style;
+  font-weight:bolder;
+  font-size: 1.1em;
+  text-shadow: 6px 6px 8px rgb(212, 174, 226);
+  background-image: url(https://cdn.pixabay.com/photo/2016/11/14/03/16/book-1822474__480.jpg);
+  background-repeat:no-repeat;
+  background-size: 100% 100%;
+  height: 500px;
+}
+.LoginPage form{
+  display: flex;
+  flex-direction: row;
+}
+
+/*EditUserPage*/
+.EditUserPage{
+  display: flex;
+  flex-direction: column;
+ align-items:center;
+ padding-left: 300px;
+  font-family: Goudy Old Style;
+  font-weight:bolder;
+  font-size: 1.1em;
+  text-shadow: 6px 6px 8px rgb(212, 174, 226);
+  background-image: url(https://cdn.pixabay.com/photo/2018/01/17/18/43/book-3088775__480.jpg);
+  background-repeat:no-repeat;
+  background-size: 100% 100%;
+}
+
+/*AddBook*/
+
+.AddBookPage{
+  background-image: url(https://cdn.pixabay.com/photo/2016/09/10/17/18/book-1659717__480.jpg);
+background-repeat: no-repeat;
+  background-size: 100% 100%;
+  color: white;
+  font-family: Goudy Old Style;
+  font-weight:bolder;
+  font-size: 1.2em;
+  text-shadow: 6px 6px 8px rgb(204, 154, 222);
+
+}
+
+.AddBookPage h1{
+  text-align: left;
+  margin-left: 50px;
+  padding-top: 10px;
+}
+
+.AddBookForm{
+    display: flex;
+    flex-direction: column;
+   align-items:center;
+   padding-left: 270px;
+   padding-bottom: 10px;  
+}
+.AddBookPage textarea {
+width: 400px;
 }

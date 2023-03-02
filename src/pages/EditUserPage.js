@@ -82,50 +82,63 @@ function EditUserPage() {
       <h1>Edit your profile</h1>
  
       <form onSubmit={handleFormSubmit}>
-      <label>Username:</label>
-        <input 
-          type="username"
-          name="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        
-        <label>Email:</label>
-        <input 
-          type="email"
-          name="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
- 
-        <label>Password:</label>
-        <input 
-          type="password"
-          name="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
- 
-        <label>About me:</label>
-        <input 
-          type="textarea"
-          name="bio"
-          value={bio}
-          onChange={(e) => setBio(e.target.value)}
-          cols="30" 
-          rows="3"
-        />
-         <label>Your profile image:</label>
-         <FileUpload setProfileImage={setProfileImage} />
+       <div className="FormBlock">
+         <label>Username:</label>
+          <input 
+            type="username"
+            name="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+       </div>
 
+       <div className="FormBlock">
+          <label>Email:</label>
+           <input 
+            type="email"
+            name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+           />
+       </div>
+
+       <div className="FormBlock">
+         <label>Password:</label>
+           <input 
+             type="password"
+             name="password"
+             value={password}
+             onChange={(e) => setPassword(e.target.value)}
+            />
+       </div>
+
+       <div className="FormBlock">
+          <label>About me:</label>
+           <input 
+             type="textarea"
+             name="bio"
+             value={bio}
+             onChange={(e) => setBio(e.target.value)}
+             cols="30" 
+             rows="3"
+            />
+       </div>
+
+       <div className="FormBlock">
+          <label>Your profile image:</label>
+            <FileUpload setProfileImage={setProfileImage} />
+       </div>
+
+       <div className="FormBlock">
          <label>Your status:</label>
-         <select name="status" value={status} onChange={(e) => setStatus(e.target.value)}>
-         <option value=" " ></option>
-         <option value="Reader">Reader</option>
-         <option value="Author">Author</option>
-         </select>
-         
-        <button type="submit">Edit</button>
+           <select name="status" value={status} onChange={(e) => setStatus(e.target.value)}>
+             <option value=" " ></option>
+             <option value="Reader">Reader</option>
+             <option value="Author">Author</option>
+             </select>
+       </div>
+        
+       <button className="PageButton" type="submit">Edit</button>
       </form>
  
       { errorMessage && <p className="error-message">{errorMessage}</p> }
