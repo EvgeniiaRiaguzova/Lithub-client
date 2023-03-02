@@ -44,7 +44,7 @@ const handleFileUpload = (e) => {
     e.preventDefault();
     // Create an object representing the request body
     if(profileImage === "" ){
-     setProfileImage("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png")
+     setProfileImage("./assets/default-user-pic.png")
     }
     const requestBody = {username, email, password, bio, profileImage, status };
  
@@ -53,6 +53,7 @@ const handleFileUpload = (e) => {
     // If the request resolves with an error, set the error message in the state
     axios.post(`${API_URL}/api/auth/signup`, requestBody)
       .then((response) => {
+        console.log(response)
         navigate('/login');
       })
       .catch((error) => {
@@ -67,6 +68,8 @@ const handleFileUpload = (e) => {
       <h1>Sign Up</h1>
  
       <form onSubmit={handleSignupSubmit}>
+
+      <div className="FormBlock">
       <label>Username:</label>
         <input 
           type="username"
@@ -74,7 +77,9 @@ const handleFileUpload = (e) => {
           value={username}
           onChange={handleUsername}
         />
-        
+        </div>
+
+        <div className="FormBlock">
         <label>Email:</label>
         <input 
           type="email"
@@ -82,7 +87,9 @@ const handleFileUpload = (e) => {
           value={email}
           onChange={handleEmail}
         />
- 
+         </div>
+
+         <div className="FormBlock">
         <label>Password:</label>
         <input 
           type="password"
@@ -90,7 +97,9 @@ const handleFileUpload = (e) => {
           value={password}
           onChange={handlePassword}
         />
- 
+         </div>
+
+         <div className="FormBlock">
         <label>About me:</label>
         <input 
           type="textarea"
@@ -100,23 +109,31 @@ const handleFileUpload = (e) => {
           cols="30" 
           rows="3"
         />
-         <label>Your profile image:</label>
-   <FileUpload setProfileImage={setProfileImage} />
+         </div>
 
-         <label>Your status:</label>
-         <select name="status" value={status} onChange={handleStatus}>
-         <option value=" " ></option>
-         <option value="Reader">Reader</option>
-         <option value="Author">Author</option>
-         </select>
-         
-        <button type="submit">Sign Up</button>
+         <div className="FormBlock">
+           <label>Your profile image:</label>
+           <FileUpload setProfileImage={setProfileImage} />
+         </div>
+
+         <div className="FormBlock">
+           <label>Your status:</label>
+           <select name="status" value={status} onChange={handleStatus}>
+            <option value=" " ></option>
+            <option value="Reader">Reader</option>
+            <option value="Author">Author</option>
+           </select>
+         </div>
+
+         <button className="PageButton" type="submit">Sign Up</button>
       </form>
  
       { errorMessage && <p className="error-message">{errorMessage}</p> }
- 
-      <p>Already have account?</p>
-      <Link to={"/login"}> Login</Link>
+ <br></br>
+         <div id="HaveAccount">
+           <p>Already have account?</p>
+           <Link to={"/login"}>Login</Link>
+         </div>
     </div>
   )
 }
