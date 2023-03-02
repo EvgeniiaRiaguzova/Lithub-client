@@ -1,6 +1,7 @@
-# Getting Started with Create React App
+# LITHUB
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple website to publish your books.
+Created with React.js.
 
 ## Available Scripts
 
