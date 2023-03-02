@@ -1,7 +1,7 @@
 import {useState, useContext} from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import {AuthContext} from "../context/auth.context"
+import {AuthContext} from "../context/auth.context";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005"; 
 
@@ -71,32 +71,46 @@ setGerne it's a function that you use to change the state of gerne
     };
 
     return (  
-    <div>
-        <div>
-          <h2>Add your Books details</h2>
-        <form onSubmit={handleSubmit}>
+        <div className='AddBookPage'>
+          <h1>Add your book details</h1>
+          <form className='AddBookForm' onSubmit={handleSubmit}>
+           <div className="FormBlock">   
+              <label>Title:</label>
+                <input type="text" value={title} name="title" 
+                onChange={(e)=> setTitle(e.target.value)}/>
+           </div>
 
-                <input type="text" value={title} onChange={(e)=> setTitle(e.target.value)} name="title" placeholder='Title'/>
-                <br/>
-                <textarea type="text" value={description} onChange={(e)=> setDescription(e.target.value)} name="description" placeholder='Description'></textarea>
-                <br/>
-                <input type="text" value={genre} onChange={(e) => setGenre(e.target.value)} name="genre" placeholder='Genre'/>
-                <br/>
-                
+           <div className="FormBlock">
+                <label>Genre:</label>
+                <input type="text" value={genre} name="genre"
+                onChange={(e) => setGenre(e.target.value)} />
+           </div>
+
+           <div className="FormBlock">
+                <label className='TextareaLabel'>Short <br></br> description:</label>
+                <textarea type="text" value={description} 
+                  onChange={(e)=> setDescription(e.target.value)}
+                  name="description"></textarea>
+           </div>
+
                 {/*{book && book.image && <img src={book.image} alt={"book_image"} style={{width: '300px', height: '300px'}} />}
                 <form onSubmit={handleSubmit}>
                 <input type="file" onChange={(e) => handleFileUpload(e)} name="bookImage" placeholder='Image'/>
                 </form>
                 <br/>
                 */}
-                <input type="textarea" value={content} onChange={(e)=> setContent(e.target.value)} name="titlecontent" placeholder='Content'/>
-                <br/>
-          <div>
-           <button type="submit">Add New Book</button>
-          </div>
+             
+           <div className="FormBlock">
+                <label>Content:</label>
+                <textarea type="text" value={content} name="content"
+                onChange={(e)=> setContent(e.target.value)}/>
+           </div>
+                
+           <button className="PageButton" type="submit">
+                   Add New Book</button>
+                
             </form>
         </div>    
-    </div>
   )
   }
 

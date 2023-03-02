@@ -1,0 +1,11 @@
+section {
+    background-image: url("../../assets/calligraphy-ge641a6401_1920.jpg");
+    height: 400px;
+   }
+   h2 {
+    padding-top: 90px;
+    padding-right: 370px;
+    padding-left: 15px;
+    font-family: Gabriola;
+    font-style: italic;
+   }
