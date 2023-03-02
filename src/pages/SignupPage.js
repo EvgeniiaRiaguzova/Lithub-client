@@ -138,4 +138,5 @@ const handleFileUpload = (e) => {
   )
 }
  
+
 export default SignupPage;
