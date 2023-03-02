@@ -12,7 +12,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
- 
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -58,32 +58,7 @@ code {
   border-bottom: rgba(255, 255, 255, 0.639) solid 2px;
   padding-bottom: 5px;
 }
-@media screen and (max-width: 1200px) {
-  .Navbar { margin-top: 0; }
-}
-@media all and (max-width: 960px){
-	.center{
-		padding:0 10px;
-		width:auto;
-	}
-	.buttons{font-size:11px;}
-	#header{
-		padding:2px 0 0;
-		height:0;
-		overflow:hidden;
-		position:static;
-	}
-	#content{padding:0;}
-}
-@media screen and (max-width: 768px) {
-  .Navbar { margin-top: 0; }
-}
-@media all and (max-width: 780px){
-	body{font-size:13px;}
-	.buttons{font-size:9px;}
-	h1{font-size:3.5em;}
-	
-}
+
 /* books*/
 .books-filter-container{
 
@@ -128,7 +103,7 @@ code {
   border-radius: 10px;
   font-weight: bold;
   font-size: 16px;
-  background-color: plum;
+  background-color:#87829c;
 }
 .navButtons {
   display: flex;
@@ -184,4 +159,31 @@ code {
 }
 .BookLink:hover{
   color:#87829c;
+}
+
+@media screen and (max-width: 1200px) {
+  .Navbar { margin-top: 0; }
+}
+@media all and (max-width: 960px){
+	.center{
+		padding:0 10px;
+		width:auto;
+	}
+	.buttons{font-size:11px;}
+	#header{
+		padding:2px 0 0;
+		height:0;
+		overflow:hidden;
+		position:static;
+	}
+	#content{padding:0;}
+}
+@media screen and (max-width: 768px) {
+  .Navbar { margin-top: 0; }
+}
+@media all and (max-width: 780px){
+	body{font-size:13px;}
+	.buttons{font-size:9px;}
+	h1{font-size:3.5em;}
+	
 }
