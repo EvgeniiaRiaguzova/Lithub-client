@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005"; 
  
-
+const imgURL = "https://cdn.vectorstock.com/i/preview-1x/59/63/realistic-open-book-literary-work-vector-21925963.jpg";
 
 function BookPage() {
 const [book, setBook] = useState({});
@@ -50,7 +50,7 @@ return (
     <div>
     <div>
     <h4>Title: {book.title}</h4>
-    <img src={book.image}  alt="book" style={{ width: '300',  height: '300px'}}/>
+    <img src={imgURL}  alt="book" style={{ width: '200',  height: '300px'}}/>
     <br/>
         <ul>
             <li>Description: {book.description}</li>
@@ -69,8 +69,7 @@ return (
         )
       })} </li>
         */}
-            <li>Genre: {book.genre}</li>
-            <li>content: {book.content}</li>
+           
 
         </ul>                    
         <div>

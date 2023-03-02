@@ -1,5 +1,11 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
 body {
   margin: 0;
+  height: 100%;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -51,6 +57,78 @@ code {
   color: #fff;
   border-bottom: rgba(255, 255, 255, 0.639) solid 2px;
   padding-bottom: 5px;
+}
+@media screen and (max-width: 1200px) {
+  .Navbar { margin-top: 0; }
+}
+@media all and (max-width: 960px){
+	.center{
+		padding:0 10px;
+		width:auto;
+	}
+	.buttons{font-size:11px;}
+	#header{
+		padding:2px 0 0;
+		height:0;
+		overflow:hidden;
+		position:static;
+	}
+	#content{padding:0;}
+}
+@media screen and (max-width: 768px) {
+  .Navbar { margin-top: 0; }
+}
+@media all and (max-width: 780px){
+	body{font-size:13px;}
+	.buttons{font-size:9px;}
+	h1{font-size:3.5em;}
+	
+}
+/* books*/
+.books-filter-container{
+
+  
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 2vw;
+}
+
+.books-list{
+  background-image: url ("./assets/360_F_313539495_TIfAx53PwhMQopiuu7J1RiY2lVzSWrep.jpg");
+  background-color: beige;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 360px);
+  justify-content: space-between;
+  flex-flow: wrap;
+  padding: 10px;
+}
+
+.BookCard card{
+  width: 360px;
+  height: 675px;
+  background-color: bisque;
+  margin-top: 30px;
+}
+/*editbookpage*/
+.EditDiv{
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  width: 30%;
+  margin: auto;
+  padding: 5% 10%;
+  margin-top: 10px;
+  border-radius: 10%;
+}
+.EditBox{
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  margin: 10px;
+  padding: 10px;
+}
+.EditBtn{
+  padding: 10px 20px;
+  border: 2px solid ;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  background-color: plum;
 }
 .navButtons {
   display: flex;
