@@ -85,7 +85,7 @@ function EditBook(props) {
    }, [bookId]);
   
   return (
-    <div className="EditDiv">
+    <div >
       <h3>Edit the Book</h3>
       <form className="EditBox" onSubmit={handleSubmit}>
 
