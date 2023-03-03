@@ -12,7 +12,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+ 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -58,7 +58,32 @@ code {
   border-bottom: rgba(255, 255, 255, 0.639) solid 2px;
   padding-bottom: 5px;
 }
-
+@media screen and (max-width: 1200px) {
+  .Navbar { margin-top: 0; }
+}
+@media all and (max-width: 960px){
+	.center{
+		padding:0 10px;
+		width:auto;
+	}
+	.buttons{font-size:11px;}
+	#header{
+		padding:2px 0 0;
+		height:0;
+		overflow:hidden;
+		position:static;
+	}
+	#content{padding:0;}
+}
+@media screen and (max-width: 768px) {
+  .Navbar { margin-top: 0; }
+}
+@media all and (max-width: 780px){
+	body{font-size:13px;}
+	.buttons{font-size:9px;}
+	h1{font-size:3.5em;}
+	
+}
 /* books*/
 .books-filter-container{
 
@@ -69,7 +94,7 @@ code {
 
 .books-list{
   background-image: url ("./assets/360_F_313539495_TIfAx53PwhMQopiuu7J1RiY2lVzSWrep.jpg");
-  background-color: beige;
+  background-color: #FFFAFA;
   display: grid;
   grid-template-columns: repeat(auto-fill, 360px);
   justify-content: space-between;
@@ -91,19 +116,21 @@ code {
   padding: 5% 10%;
   margin-top: 10px;
   border-radius: 10%;
+  
 }
 .EditBox{
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   margin: 10px;
   padding: 10px;
+  background-color: #87829c;
 }
 .EditBtn{
   padding: 10px 20px;
-  border: 2px solid ;
+  
   border-radius: 10px;
   font-weight: bold;
   font-size: 16px;
-  background-color:#87829c;
+  border:#87829c solid 1px;
 }
 .navButtons {
   display: flex;
@@ -164,29 +191,111 @@ code {
   color:#87829c;
 }
 
-@media screen and (max-width: 1200px) {
-  .Navbar { margin-top: 0; }
+/*SignUpPage*/
+
+.SignupPage {
+  display: flex;
+  flex-direction: column;
+ align-items: center;
+  font-family: Goudy Old Style;
+  font-weight:bolder;
+  font-size: 1.1em;
+  text-shadow: 6px 6px 8px rgb(212, 174, 226);
+  background-image: url(https://cdn.pixabay.com/photo/2015/11/19/21/10/glasses-1052010_1280.jpg);
 }
-@media all and (max-width: 960px){
-	.center{
-		padding:0 10px;
-		width:auto;
-	}
-	.buttons{font-size:11px;}
-	#header{
-		padding:2px 0 0;
-		height:0;
-		overflow:hidden;
-		position:static;
-	}
-	#content{padding:0;}
+
+.SignupPage::before {    
+  background-image: url(https://cdn.pixabay.com/photo/2015/11/19/21/10/glasses-1052010_1280.jpg)  ;
+  background-size:cover; 
+  opacity: 0.3;}
+
+.FormBlock{
+  margin: 10px auto;
+  
 }
-@media screen and (max-width: 768px) {
-  .Navbar { margin-top: 0; }
+.FormBlock label{
+  margin-right: 10px;
+  margin-left: 10px;
 }
-@media all and (max-width: 780px){
-	body{font-size:13px;}
-	.buttons{font-size:9px;}
-	h1{font-size:3.5em;}
-	
+.FormBlock select{
+  border: solid #87829c 1px;
 }
+
+#HaveAccount{
+  display: flex;
+  flex-direction: row;
+}
+#HaveAccount p{
+  margin-right: 7px;
+}
+
+/*LoginPage*/
+.LoginPage{
+  display: flex;
+  flex-direction: column;
+ align-items: center;
+  font-family: Goudy Old Style;
+  font-weight:bolder;
+  font-size: 1.1em;
+  text-shadow: 6px 6px 8px rgb(212, 174, 226);
+  background-image: url(https://cdn.pixabay.com/photo/2016/11/14/03/16/book-1822474__480.jpg);
+  background-repeat:no-repeat;
+  background-size: 100% 100%;
+  height: 500px;
+}
+.LoginPage form{
+  display: flex;
+  flex-direction: row;
+}
+
+/*EditUserPage*/
+.EditUserPage{
+  display: flex;
+  flex-direction: column;
+ align-items:center;
+ padding-left: 300px;
+  font-family: Goudy Old Style;
+  font-weight:bolder;
+  font-size: 1.1em;
+  text-shadow: 6px 6px 8px rgb(212, 174, 226);
+  background-image: url(https://cdn.pixabay.com/photo/2018/01/17/18/43/book-3088775__480.jpg);
+  background-repeat:no-repeat;
+  background-size: 100% 100%;
+}
+
+/*AddBook*/
+
+.AddBookPage{
+  background-image: url(https://cdn.pixabay.com/photo/2016/09/10/17/18/book-1659717__480.jpg);
+background-repeat: no-repeat;
+  background-size: 100% 100%;
+  color: white;
+  font-family: Goudy Old Style;
+  font-weight:bolder;
+  font-size: 1.2em;
+  text-shadow: 6px 6px 8px rgb(204, 154, 222);
+
+}
+
+.AddBookPage h1{
+  text-align: left;
+  margin-left: 50px;
+  padding-top: 10px;
+}
+
+
+
+.AddBookForm{
+    display: flex;
+    flex-direction: column;
+   align-items:center;
+   padding-left: 270px;
+   padding-bottom: 10px;  
+}
+.AddBookPage textarea {
+width: 400px;
+}
+
+
+
+
