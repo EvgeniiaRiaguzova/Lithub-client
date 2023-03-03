@@ -67,34 +67,34 @@ function UserProfilePage(props) {
        {user && 
         <div className="UserProfilePage">
 
-      <h1>Welcome, {user.username}</h1> 
+      
       <img className="UserProfileImg" alt="User profile"
              src={user.profileImage}/>
-      <p>Status: {user.status}</p>
-      <p>About you: {user.bio}</p>
-      <br></br>
+     
+      <div className="UserInfo">
+      <h1>Welcome, {user.username}!</h1> 
+      <p><strong>Status: </strong>{user.status}</p>
+      <p><strong>About you: </strong>{user.bio}</p>
+     <div className="UserButtons">
       <Link to="/users/edit"> 
-             <button>Edit your profile</button></Link>
+             <button className="PageButton ">Edit your profile</button></Link>
       
-      <button onClick={deleteUser}>Delete your profile</button>
-      
-      <br></br>
-      <h5>Your books:</h5>
-    
-      
+      <button className="PageButton" onClick={deleteUser}>Delete your profile</button>
+      </div>
+      </div>
+      <div className="UrBooksSection">
+      <h3 id="urBooks">Your books:</h3> 
+
      {user.books?.map((book)=>{
         return (
           <div>
-          <h4 key={book._id}>{book.title}</h4>
+          <h4 key={book._id}><Link className="BookLink" to={`/bookpage/${book._id}`}>{book.title}</Link></h4>
           </div>
         )
       })}
       <br></br>
-
-
-       <br></br>
-       <Link to="/addbooks"><button>Add new Book</button></Link>
-     
+       <Link to="/addbooks"><button className="PageButton ">Add new Book</button></Link>
+     </div>
     </div>
     }
 </div>
