@@ -82,7 +82,7 @@ function UserProfilePage(props) {
       <button className="PageButton" onClick={deleteUser}>Delete your profile</button>
       </div>
       </div>
-      <div className="UrBooksSection">
+      {user.status==="Author" && <div className="UrBooksSection">
       <h3 id="urBooks">Your books:</h3> 
 
      {user.books?.map((book)=>{
@@ -94,7 +94,8 @@ function UserProfilePage(props) {
       })}
       <br></br>
        <Link to="/addbooks"><button className="PageButton ">Add new Book</button></Link>
-     </div>
+     </div>}
+      
     </div>
     }
 </div>
