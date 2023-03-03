@@ -47,16 +47,16 @@ const handleSubmit = (e) => {
     }
 
 return (
-    <div className='AddBookPage'>
+    <div>
     <div>
     <h4>Title: {book.title}</h4>
-    <img src={imgURL}  alt="book" style={{ width: '200',  height: '300px'}}/>
+ 
     <br/>
         <ul className="FormBlock">
             <li>Description: {book.description}</li>
             <li>Author: {book.author.username}</li>
 
-            <li>Gerne: {book.gerne}</li>
+            <li>Gerne: {book.genre}</li>
             <li>Content: {book.content}</li>
 
         

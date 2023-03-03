@@ -1,5 +1,5 @@
 import "./HomePage.css";
-import Footer from "../../components/Footer/Footer";
+
 function HomePage() {
   return (
     <div>

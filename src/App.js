@@ -15,7 +15,7 @@ import BookPage from "./pages/BookPage";
 import AddBook from "./components/AddBook";
 import EditBook from "./pages/EditBook";
 import BookCard from "./components/BookCard";
-import Footer from "./components/Footer/Footer";
+import Footer from "./components/Footer";
 import { useState } from "react";
 
 import IsPrivate from "./components/IsPrivate";  
