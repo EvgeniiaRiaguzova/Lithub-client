@@ -110,6 +110,9 @@ code {
 .books-list{
   height: 350px;
   background-image: url ("./assets/360_F_313539495_TIfAx53PwhMQopiuu7J1RiY2lVzSWrep.jpg");
+
+  background-color: #FFFAFA;
+
   display: grid;
   grid-template-columns: repeat(auto-fill, 360px);
   justify-content: space-between;
@@ -131,19 +134,23 @@ code {
   padding: 5% 10%;
   margin-top: 10px;
   border-radius: 10%;
+
 }
 .EditBox{
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   margin: 10px;
   padding: 10px;
+
+  background-color: #87829c;
 }
 .EditBtn{
   padding: 10px 20px;
-  border: 2px solid ;
+  
   border-radius: 10px;
   font-weight: bold;
   font-size: 16px;
-  background-color: plum;
+  border:#87829c solid 1px;
+
 }
 .navButtons {
   display: flex;
